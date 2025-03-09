@@ -49,8 +49,10 @@
                             
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href="{{url('roles/' . $role->id . '/edit')}}" class="text-indigo-600 hover:text-indigo-900">ویرایش</a>
+                                <a href="{{url('roles/' . $role->id . '/give-permissions')}}" class="mx-3 text-indigo-600 hover:text-indigo-900">افزودن سطح دسترسی</a>
                                 <a href="{{url('roles/' . $role->id . '/delete')}}" class="text-indigo-600 hover:text-indigo-900">حذف</a>
                             </td>
+
                         </tr>
                         @endforeach
                        
