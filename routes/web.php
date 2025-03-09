@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 
 Route::resource('/permissions', PermissionController::class);
+Route::get('/permissions/{permissionId}/delete', [PermissionController::class, 'destroy']);
