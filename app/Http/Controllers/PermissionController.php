@@ -10,7 +10,13 @@ class PermissionController extends Controller
     
     public function index()
     {
-        return view('permissions.index');
+        $permissions = Permission::get();
+
+        return view('permissions.index',
+    [
+        'permissions' => $permissions
+    ]);
+
     }
 
     public function create()
@@ -37,14 +43,32 @@ class PermissionController extends Controller
         return redirect('permissions');
     }
 
-    public function edit()
+    public function edit(Permission $permission)
     {
-
+        return view('permissions.edit',
+    [
+        'permission' => $permission
+    ]);
     }
 
-    public function update()
+    public function update(Permission $permission, Request $request)
     {
+        $request->validate([
+            'name' => [
+                'required',
+                'string',
+                'unique:permissions,name'
+            ]
+        ]
+            );
 
+            $permission->update(
+            [
+                'name' => $request->name
+            ]
+        );
+
+        return redirect('permissions');
     }
 
     public function destroy()

@@ -33,47 +33,26 @@
                                 نام سطح دسترسی
                             </th>
                             <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                توضیحات
+                                عملیات
                             </th>
-                            <th scope="col" class="relative px-6 py-3">
-                                <span class="sr-only">ویرایش</span>
-                            </th>
+                            
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach($permissions as $permission)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">مدیر سیستم</div>
+                                <div class="text-sm text-gray-900">{{$permission->name}}</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-500">دسترسی کامل به تمام بخش های سیستم</div>
-                            </td>
+                            
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900">ویرایش</a>
+                                <a href="{{url('permissions/' . $permission->id . '/edit')}}" class="text-indigo-600 hover:text-indigo-900">ویرایش</a>
+                                <a href="{{url('')}}" class="text-indigo-600 hover:text-indigo-900">حذف</a>
+
                             </td>
                         </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">کاربر عادی</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-500">دسترسی محدود به بخش های مشخص شده</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900">ویرایش</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">میهمان</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-500">دسترسی فقط برای مشاهده اطلاعات عمومی</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900">ویرایش</a>
-                            </td>
-                        </tr>
+                        @endforeach
+                       
                         </tbody>
                 </table>
             </div>
